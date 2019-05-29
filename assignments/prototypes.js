@@ -31,10 +31,9 @@ GameObject.prototype.destroy=function(){
 */
 function CharacterStats(charAttributes){
   GameObject.call(this, charAttributes);
-  CharacterStats.prototype=Object.create(GameObject.prototype);
   this.healthPoints=charAttributes.healthPoints;
 }
-
+CharacterStats.prototype=Object.create(GameObject.prototype);
 CharacterStats.prototype.takeDamage=function(){
   return `${this.name} took damage`;
 }
@@ -50,12 +49,12 @@ CharacterStats.prototype.takeDamage=function(){
 */
  function Humanoid(humanAttributes){
    CharacterStats.call(this, humanAttributes);
-   Humanoid.prototype=Object.create(CharacterStats.prototype);
    this.team=humanAttributes.team;
    this.weapons=humanAttributes.weapons;
    this.language=humanAttributes.language;
  }
 
+ Humanoid.prototype=Object.create(CharacterStats.prototype);
  Humanoid.prototype.greet=function(){
    return `${this.name} offers a greeting in ${this.language}`;
  };
